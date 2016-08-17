@@ -1,0 +1,107 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.event.*;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class z8 extends JFrame
+	{
+	
+	public z8()
+		{
+		super(" ABT MODULES ");
+		setBounds(150,150,770,480);
+		
+		JPanel mk81 = new JPanel();
+		mk81.setLayout(new BoxLayout(mk81,BoxLayout.X_AXIS));
+		
+		JPanel mk811 = new JPanel();
+		mk811.setBorder(new EmptyBorder(15,10,10,10));
+
+		JPanel mk8111 = new JPanel();
+		mk8111.setLayout(new GridLayout(10,1,5,5));
+		
+		mk8111.add(new JLabel("                           MODULES OF WEB DATA EXTRACTION" ));
+		
+		mk8111.add(new JLabel("                                                  " ));
+		mk8111.add(new JLabel(" 1 . SEARCH MODULE "));
+		mk8111.add(new JLabel("      **   Receive the URL / Page Name from the User" ));
+		
+		mk8111.add(new JLabel(" 2 . DATA DEFINITION MODULE"));
+		mk8111.add(new JLabel("      **   Building the Definitions that will be used to Parse the page"));
+		mk8111.add(new JLabel(" 3 . PARSER MODULE "));
+		mk8111.add(new JLabel("      **   Dividing the Data into Records & Fields" ));
+
+		mk8111.add(new JLabel(" 4 . DATA EXTRACTION MODULE "));
+		mk8111.add(new JLabel("      **   Creates the output in Table format" ));
+		
+		mk811.setLayout(new BorderLayout());
+		mk811.add(mk8111, BorderLayout.WEST);
+		mk81.add(mk811);
+		
+		getContentPane().add(mk81,BorderLayout.NORTH);
+
+
+		
+		JPanel mk82 = new JPanel();
+		JPanel mk821 = new JPanel();
+		mk82.setLayout(new GridLayout(1,2,5,5));
+		
+		final JButton b1 = new JButton(" Back to PHASE II ");
+		mk821.add(b1);
+		final JButton b2 = new JButton(" Back to PHASE I ");
+		mk821.add(b2);
+		final JButton b3 = new JButton(" Abt User Option ");
+		mk821.add(b3);
+		
+		mk82.add(mk821);
+		getContentPane().add(mk82, BorderLayout.SOUTH);
+		
+		b1.addActionListener(new java.awt.event.ActionListener()
+			 {
+            		public void actionPerformed(java.awt.event.ActionEvent evt)
+				 {
+               			z6 ob86 = new z6("");
+				ob86.setVisible(true);
+				setVisible(false);
+				}
+			});
+		b2.addActionListener(new java.awt.event.ActionListener()
+			 {
+            		public void actionPerformed(java.awt.event.ActionEvent evt)
+				{
+				z5 ob85 = new z5();
+				ob85.setVisible(true);
+				setVisible(false);
+				}
+			});
+		
+		b3.addActionListener(new java.awt.event.ActionListener()
+			 {
+            		public void actionPerformed(java.awt.event.ActionEvent evt)
+				 {
+               			z9 ob89 = new z9();
+				ob89.setVisible(true);
+				setVisible(false);
+				}
+			});
+		
+		
+		setVisible(true);
+		}
+
+	public static void main(String args[])
+		{
+		new z8();
+		}
+	}
+
+
+
+
+

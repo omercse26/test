@@ -1,0 +1,110 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.event.*;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class z9 extends JFrame
+	{
+	
+	public z9()
+		{
+		super(" ABT USER OPTION ");
+		setBounds(150,150,770,480);
+		
+		JPanel mk91 = new JPanel();
+		mk91.setLayout(new BoxLayout(mk91,BoxLayout.X_AXIS));
+		
+		JPanel mk911 = new JPanel();
+		mk911.setBorder(new EmptyBorder(5,5,5,5));
+
+		JPanel mk9111 = new JPanel();
+		mk9111.setLayout(new GridLayout(12,1,5,5));
+		
+		mk9111.add(new JLabel("                           DESCRIPTION ABOUT USER OPTION" ));
+		
+		mk9111.add(new JLabel("                                                  " ));
+		mk9111.add(new JLabel("                                                  " ));
+		mk9111.add(new JLabel("                                                  " ));
+		mk9111.add(new JLabel(" 1 . SOURCE CODE "));
+		mk9111.add(new JLabel("      **   Dispaly the Source / HTML code of the given HTML file / Page" ));
+		mk9111.add(new JLabel(" 2 . SCREENED WEB PAGE "));
+		mk9111.add(new JLabel("      **   The Output Webpage is without the unwanted Tags "));
+		mk9111.add(new JLabel(" 3 . TAG / PARSE TREE "));
+		mk9111.add(new JLabel("      **   Gives the Structure of TAG / PARSE tree" ));
+		mk9111.add(new JLabel(" 4 . PROCESSED TAG / PARSE TREE "));
+		mk9111.add(new JLabel("      **   Gives the output of Compressed TAG / PARSE tree" ));
+		mk9111.add(new JLabel(" 5 . RESULT"));
+		mk9111.add(new JLabel("      **   The Result is in the form of Table " ));
+		
+			
+		mk911.setLayout(new BorderLayout());
+		mk911.add(mk9111, BorderLayout.WEST);
+		mk91.add(mk911);
+		
+		getContentPane().add(mk91,BorderLayout.NORTH);
+
+
+		
+		JPanel mk92 = new JPanel();
+		JPanel mk921 = new JPanel();
+		mk92.setLayout(new GridLayout(1,2,5,5));
+		
+		final JButton b1 = new JButton(" Back to PHASE II ");
+		mk921.add(b1);
+		final JButton b2 = new JButton(" Back to PHASE I ");
+		mk921.add(b2);
+		final JButton b3 = new JButton(" Abt Modules ");
+		mk921.add(b3);
+		
+		mk92.add(mk921);
+		getContentPane().add(mk92, BorderLayout.SOUTH);
+		
+		b1.addActionListener(new java.awt.event.ActionListener()
+			 {
+            		public void actionPerformed(java.awt.event.ActionEvent evt)
+				 {
+               			z6 ob96 = new z6("");
+				ob96.setVisible(true);
+				setVisible(false);
+				}
+			});
+		b2.addActionListener(new java.awt.event.ActionListener()
+			 {
+            		public void actionPerformed(java.awt.event.ActionEvent evt)
+				{
+				z5 ob95 = new z5();
+				ob95.setVisible(true);
+				setVisible(false);
+				}
+			});
+		
+		b3.addActionListener(new java.awt.event.ActionListener()
+			 {
+            		public void actionPerformed(java.awt.event.ActionEvent evt)
+				 {
+               			z8 ob98 = new z8();
+				ob98.setVisible(true);
+				setVisible(false);
+				}
+			});
+		
+		
+		setVisible(true);
+		}
+
+	public static void main(String args[])
+		{
+		new z9();
+		}
+	}
+
+
+
+
+

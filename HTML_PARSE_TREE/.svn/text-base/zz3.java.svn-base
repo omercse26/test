@@ -1,0 +1,136 @@
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+class Pat
+{
+	String tag;
+	int level;
+	String string;
+	Pat father;
+	Pat child;
+	Pat next;
+	public void Pat()
+		{
+		tag="";
+		level=-1;
+		string="";
+		father=null;
+		child=null;
+		next=null;
+		}
+}
+
+class zz3
+{
+	protected FileReader fr;
+	protected BufferedReader br;
+	protected char analyse[];;
+	public static String tag="";
+	public static String data="";
+	public static boolean moretags=true;
+
+	public void project() throws Exception
+		{
+      		data=br.readLine();
+		}
+
+	public void gettag() throws Exception
+		{
+		data="";
+		tag="";
+                data=br.readLine();
+                tag=br.readLine();
+                if(data.equals("end of file")||tag.equals("end of file"))
+                	moretags=false;
+ 
+		}
+  
+	public void tagtree() throws Exception
+		{
+		zz3 p=new zz3();
+		p.fr=new FileReader("mk27_1.txt");
+		int length;
+		p.br=new BufferedReader(p.fr);
+		FileWriter fw=new FileWriter("f.txt");
+		Pat root=null;
+		Pat temp=null,temp1=null;
+		Pat mov=null;
+		int count=1;
+		while(moretags)
+			{
+			p.gettag();
+			if(tag!=null&&!tag.equals("end of file"))
+				{
+					p.analyse=new char[100];
+					length=tag.length();
+					tag.getChars(0,length,p.analyse,0);
+					if(p.analyse[1]=='/')
+						{
+						for(int i=1;i<length-1;i++)
+							p.analyse[i]=p.analyse[i+1];
+						p.analyse[length-1]=' ';
+						tag=new String(p.analyse).trim();
+						temp1=mov;
+						if(mov.tag.equals(tag))
+							mov=mov.father;
+						}
+					else if(root==null)
+						{
+						root=new Pat();
+						root.tag=tag;
+						root.level=0;
+						mov=root;
+						}
+					else if(mov.child==null)
+						{
+						temp=new Pat();
+						temp.tag=tag;
+						temp.level=mov.level+1;
+						temp.father=mov;
+						temp.next=null;
+						mov.child=temp;
+						mov=temp;
+						}   
+					else
+						{
+						temp=new Pat();
+						mov=mov.child;
+						while(mov.next!=null)
+							mov=mov.next;
+						temp.tag=tag;
+						temp.level=mov.level;
+						temp.next=null;
+						temp.father=mov.father;
+						mov.next=temp;
+						mov=temp;
+						}
+        
+				}
+      
+			}
+	fw.write("  TAG\t\tLEVEL\t\tBROTHER\n\n");
+	p.trav(root,fw);
+	fw.close();
+	p.br.close();
+	p.fr.close();
+
+}
+public void trav(Pat root,FileWriter fw) throws Exception
+	{
+		if(root!=null)
+			{
+			fw.write(root.tag);
+			fw.write("\t\t");
+			String s=Integer.toString(root.level);
+			fw.write(s);
+			fw.write("\t\t");
+			if(root.next==null)
+				fw.write("null");
+			fw.write("\r\n");
+			trav(root.child,fw);
+			trav(root.next,fw);
+			}
+	}
+
+}
+ 
